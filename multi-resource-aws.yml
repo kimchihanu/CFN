@@ -110,12 +110,13 @@ Resources:
             DeleteOnTermination: yes
             Groups:
               - !Ref InstanceSecurityGroup
-        ImageId: ami-0d90bed5fd88612ca
+        ImageId: ami-0ef9b4be72ab9e1df
         InstanceType: t2.micro
         UserData:
           Fn::Base64: !Sub |
             #!/bin/bash
             echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
+
   #Create an ALB
   ApplicationLoadBalancer:
     Type: "AWS::ElasticLoadBalancingV2::LoadBalancer"
